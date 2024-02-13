@@ -1,0 +1,22 @@
+<div>
+  <div>
+    Sign Up
+  </div>
+  <div class="form_container">
+    <form action="" (ngSubmit)="createUser(form)" #form="ngForm">
+      <div class="mb-3">
+        <label class="form-label" name="name" id="name" for="name">Name</label>
+        <input class="form-control" ngModel name="name" type="text">
+      </div>
+      <div class="mb-3">
+        <label class="form-label" name="surname" id="surname" for="surname">Surname</label>
+        <input class="form-control" ngModel name="surname" type="text">
+      </div>
+      <div>
+        <button class="btn btn-primary" type="submit">
+          Add User
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
