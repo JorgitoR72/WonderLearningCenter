@@ -1,18 +1,22 @@
 import { Component } from '@angular/core';
-import { FormsModule, ReactiveFormsModule, NgForm } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { ApiService } from '../../../services/api.service';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
 
-  constructor() { }
+  constructor(private apiService: ApiService) { }
 
-  ngOnInit() { }
-
-  public createUser(form: NgForm) { }
+  public async registerUser(form: NgForm) {
+    let user = form.value
+    /* this.apiService.registerUser(user) */
+    console.log(user)
+  }
 }
