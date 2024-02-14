@@ -3,14 +3,14 @@
     Login
   </div>
   <div class="form_container">
-    <form action="" (ngSubmit)="login(form)" #form="ngForm">
+    <form (submit)="logCheck()" [formGroup]="form">
       <div class="mb-3">
         <label class="form-label" name="email" id="email" for="email">eMail</label>
-        <input class="form-control" ngModel name="email" type="mail">
+        <input class="form-control" formControlName="username" name="email" type="email">
       </div>
       <div class="mb-3">
         <label class="form-label" name="password" id="password" for="password">Password</label>
-        <input class="form-control" ngModel name="password" type="password">
+        <input class="form-control" formControlName="password" name="password" type="password">
       </div>
       <div>
         <button class="btn btn-primary" type="submit">
