@@ -1,17 +1,24 @@
 import { Component } from '@angular/core';
-import { FormsModule, ReactiveFormsModule, NgForm } from '@angular/forms';
+import { FormControl, ReactiveFormsModule, FormGroup } from '@angular/forms';
+import { ApiService } from '../../../services/api.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [ReactiveFormsModule,],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  constructor() { }
+  constructor(private apiService: ApiService) { }
 
-  ngOnInit() { }
+  protected form: FormGroup = new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl('')
+  })
 
-  public login(form: NgForm) { }
+  public logCheck() {
+    let user = this.form.value;
+    this.apiService.logCheck(user);
+  }
 }
