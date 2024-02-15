@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { routesGuard } from './routes.guard';
+import { pagerouteGuard } from './pageroute.guard';
 import { RegisterComponent } from './components/security/register/register.component';
 import { LoginComponent } from './components/security/login/login.component';
 import { HomeComponent } from './views/site/home/home.component';
@@ -13,7 +14,7 @@ import { ScheduleComponent } from './views/dashboard/schedule/schedule.component
 export const routes: Routes = [
   { path: '', redirectTo: 'site', pathMatch: 'full' },
   {
-    path: 'site', children: [
+    path: 'site', canActivate: [pagerouteGuard], children: [
       {
         path: 'home', component: HomeComponent,
       },
@@ -29,7 +30,7 @@ export const routes: Routes = [
     ]
   },
   {
-    path: 'dashboard', canActivate: [routesGuard], children: [
+    path: 'dashboard', canActivate: [routesGuard, pagerouteGuard], children: [
       {
         path: 'profile', children: [
           {

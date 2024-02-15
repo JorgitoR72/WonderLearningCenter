@@ -1,1 +1,9 @@
+@if (page === 'site' || 'security') {
+<button>Hola</button>
 <router-outlet></router-outlet>
+
+} @else if (page === 'dashboard') {
+<button>Adios</button>
+<router-outlet></router-outlet>
+
+}
