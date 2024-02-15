@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -9,11 +8,5 @@ import { Router } from '@angular/router';
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent {
-  constructor(private router: Router) { }
 
-  public logOut() {
-    window.localStorage.removeItem('token')
-    window.localStorage.removeItem('email')
-    this.router.navigate(['site']);
-  }
 }

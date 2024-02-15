@@ -1,28 +1,27 @@
 import { Routes } from '@angular/router';
 import { routesGuard } from './routes.guard';
-import { pagerouteGuard } from './pageroute.guard';
-import { RegisterComponent } from './components/security/register/register.component';
-import { LoginComponent } from './components/security/login/login.component';
-import { HomeComponent } from './views/site/home/home.component';
-import { AboutusComponent } from './views/site/aboutus/aboutus.component';
-import { ContactComponent } from './views/site/contact/contact.component';
-import { ProfileComponent } from './views/dashboard/profile/profile.component';
-import { CoursesComponent } from './views/dashboard/courses/courses.component';
-import { ScheduleComponent } from './views/dashboard/schedule/schedule.component';
+import { SiteComponent } from './layouts/site/site.component';
+import { SecurityComponent } from './layouts/security/security.component';
+import { DashboardComponent } from './layouts/dashboard/dashboard.component';
 
 
 export const routes: Routes = [
   { path: '', redirectTo: 'site', pathMatch: 'full' },
   {
-    path: 'site', canActivate: [pagerouteGuard], children: [
+    path: 'site',
+    component: SiteComponent,
+    children: [
       {
-        path: 'home', component: HomeComponent,
+        path: 'home',
+        loadChildren: () => import('./views/site/home/home.module').then(m => m.HomeModule),
       },
       {
-        path: 'aboutus', component: AboutusComponent,
+        path: 'aboutus',
+        loadChildren: () => import('./views/site/aboutus/aboutus.module').then(m => m.AboutusModule),
       },
       {
-        path: 'contact', component: ContactComponent,
+        path: 'contact',
+        loadChildren: () => import('./views/site/contact/contact.module').then(m => m.ContactModule),
       },
       {
         path: '', redirectTo: 'home', pathMatch: 'full'
@@ -30,25 +29,17 @@ export const routes: Routes = [
     ]
   },
   {
-    path: 'dashboard', canActivate: [routesGuard, pagerouteGuard], children: [
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [routesGuard],
+    children: [
       {
-        path: 'profile', children: [
-          {
-            path: 'myprofile', component: ProfileComponent,
-          },
-          {
-            path: 'register', component: RegisterComponent,
-          },
-          {
-            path: '', redirectTo: 'myprofile', pathMatch: 'full'
-          }
-        ]
+        path: 'profile',
+        loadChildren: () => import('./views/dashboard/profile/profile.module').then(m => m.ProfileModule),
       },
       {
-        path: 'courses', component: CoursesComponent,
-      },
-      {
-        path: 'schedule', component: ScheduleComponent,
+        path: 'schedule',
+        loadChildren: () => import('./views/dashboard/schedule/schedule.module').then(m => m.ScheduleModule),
       },
       {
         path: '', redirectTo: 'profile', pathMatch: 'full'
@@ -56,9 +47,10 @@ export const routes: Routes = [
     ]
   },
   {
-    path: 'security', children: [
+    path: 'security', component: SecurityComponent, children: [
       {
-        path: 'login', component: LoginComponent,
+        path: 'login',
+        loadChildren: () => import('./views/security/login/login.module').then(m => m.LoginModule),
       },
       {
         path: '', redirectTo: 'login', pathMatch: 'full'

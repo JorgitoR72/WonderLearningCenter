@@ -1,4 +1,3 @@
 export const environment = {
-  url: 'http://localhost:8000/',
-  page: 'site'
+  url: 'http://localhost:8000/'
 };

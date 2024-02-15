@@ -12,7 +12,7 @@ class PermissionsService {
     if (token!) {
       return true
     } else {
-      this.router.navigate(['security/login'], { queryParams: {} })
+      this.router.navigate(['security'])
       return false
     }
   }

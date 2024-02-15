@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { Router, RouterOutlet } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -11,13 +12,5 @@ import { ReactiveFormsModule } from '@angular/forms';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  constructor(public location: Location) { }
-
-  public page: string = ''
-  title = 'frontend';
-
-  ngOnInit() {
-    this.page = this.location.path().split('/')[1];
-  }
 
 }
