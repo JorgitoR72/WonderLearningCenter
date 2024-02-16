@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LogoutService } from '../../../services/api/security/logout/logout.service';
 
 @Component({
   selector: 'app-profile',
@@ -8,5 +9,9 @@ import { Component } from '@angular/core';
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent {
+  constructor(public logoutSecurityService: LogoutService) { }
 
+  public logout() {
+    this.logoutSecurityService.logOut();
+  }
 }
