@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { Component, Inject } from '@angular/core';
+import { CommonModule, Location } from '@angular/common';
+import { Router, RouterOutlet } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -11,5 +12,5 @@ import { ReactiveFormsModule } from '@angular/forms';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'frontend';
+
 }

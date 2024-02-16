@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule, FormGroup } from '@angular/forms';
-import { ApiService } from '../../../services/api.service';
+import { LoginService } from '../../../services/api/security/login/login.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule,],
+  imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  constructor(private apiService: ApiService) { }
+  constructor(private securityLoginService: LoginService) { }
 
   protected form: FormGroup = new FormGroup({
     username: new FormControl(''),
@@ -19,6 +19,6 @@ export class LoginComponent {
 
   public logCheck() {
     let user = this.form.value;
-    this.apiService.logCheck(user);
+    this.securityLoginService.logCheck(user);
   }
 }
