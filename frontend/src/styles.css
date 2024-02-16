@@ -693,8 +693,12 @@ header
     -webkit-transition: all 0s ease 0s;
     -moz-transition: all 0s ease 0s;
     -o-transition: all 0s ease 0s;
-    transition: all 0s ease 0s;
+    transition: all 0s ease 1s;
     margin-left: 0px;
+  }
+
+  .header-area .main-nav .nav.active {
+    display: block;
   }
 
   .header-area .main-nav .nav li:first-child {
@@ -771,7 +775,6 @@ header
     display: flex !important;
   }
 }
-
 
 /* 
 ---------------------------------------------
