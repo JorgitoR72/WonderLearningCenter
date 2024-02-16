@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+declare var $: any
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -9,4 +11,5 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  constructor() { }
 }
