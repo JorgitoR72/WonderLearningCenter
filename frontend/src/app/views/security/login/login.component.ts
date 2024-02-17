@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule, FormGroup } from '@angular/forms';
 import { LoginService } from '../../../services/api/security/login/login.service';
+import { UserService } from '../../../services/api/user/user.service';
+import { Router } from '@angular/router';
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +13,7 @@ import { LoginService } from '../../../services/api/security/login/login.service
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  constructor(private securityLoginService: LoginService) { }
+  constructor(private router: Router, private securityLoginService: LoginService, private userService: UserService) { }
 
   protected form: FormGroup = new FormGroup({
     username: new FormControl(''),
@@ -19,6 +22,21 @@ export class LoginComponent {
 
   public logCheck() {
     let user = this.form.value;
-    this.securityLoginService.logCheck(user);
+    this.securityLoginService.logCheck(user).pipe(
+      switchMap((res: any) => {
+        if (typeof res.token === 'string') {
+          window.localStorage.setItem('token', res.token);
+          return this.userService.getUserbyEmail(user.username);
+        } else {
+          return this.router.navigate(['security']);
+        }
+      })
+    ).subscribe((userResponse: any) => {
+      window.localStorage.setItem('user', JSON.stringify(userResponse));
+      this.router.navigate(['dashboard']);
+    }, error => {
+      console.error("Error:", error); // Maneja el error de getUserbyEmail
+    });
   }
+
 }

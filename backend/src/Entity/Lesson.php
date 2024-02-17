@@ -23,6 +23,9 @@ class Lesson
     #[ORM\Column(length: 25)]
     private ?string $classroom = null;
 
+    #[ORM\ManyToOne(inversedBy: 'lessons')]
+    private ?Subject $subject = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +63,18 @@ class Lesson
     public function setClassroom(string $classroom): static
     {
         $this->classroom = $classroom;
+
+        return $this;
+    }
+
+    public function getSubject(): ?Subject
+    {
+        return $this->subject;
+    }
+
+    public function setSubject(?Subject $subject): static
+    {
+        $this->subject = $subject;
 
         return $this;
     }

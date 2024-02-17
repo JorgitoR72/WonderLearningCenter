@@ -7,6 +7,7 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
+    loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule),
   },
   {
     path: 'schedule',

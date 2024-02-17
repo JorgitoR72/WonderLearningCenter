@@ -15,14 +15,4 @@ export class ApiService {
       console.log(res)
     })
   }
-
-  public async logCheck(user: any) {
-    return this.http.post(environment.url + 'api/login_check', user).toPromise().then((res: any) => {
-      if (typeof res.token === 'string') {
-        window.localStorage.setItem('token', res.token);
-        window.localStorage.setItem('email', user.username);
-        this.router.navigate(['dashboard']);
-      }
-    })
-  }
 }

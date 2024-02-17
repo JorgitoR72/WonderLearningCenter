@@ -8,7 +8,7 @@ class PermissionsService {
   constructor(private router: Router) { }
 
   canActivate(): any {
-    const token = localStorage.getItem('token')
+    const token = window.localStorage.getItem('token')
     if (token!) {
       return true
     } else {
