@@ -24,4 +24,8 @@ export class UserService {
   postNewUser(user: any): Observable<any> {
     return this.http.post<any>(environment.url + 'api/user/new', user);
   }
+
+  deleteUser(id: number): Observable<any> {
+    return this.http.delete(environment + 'delete/' + id);
+  }
 }

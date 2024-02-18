@@ -21,7 +21,7 @@ export class UserslistComponent {
   public dataSource: MatTableDataSource<Userdetail> = new MatTableDataSource<Userdetail>;
   public allusers: Userdetail[] = [];
 
-  public displayedColumns: string[] = ['name', 'surname', 'birthdate'];
+  public displayedColumns: string[] = ['name', 'surname', 'birthdate', 'actions'];
 
   public getAllDetails() {
     this.detailService.getAllDetails().subscribe((res) => {

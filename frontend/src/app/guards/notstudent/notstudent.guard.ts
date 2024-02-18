@@ -14,7 +14,7 @@ class NotStudentPermissions {
     if (userRole !== 'ROLE_STUDENT') {
       return true
     } else {
-      this.router.navigate(['dashboard', 'profile', 'myprofile'])
+      this.router.navigate(['dashboard'])
       return false
     }
   }

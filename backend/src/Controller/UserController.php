@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Detail;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
@@ -97,6 +98,11 @@ class UserController extends AbstractController
             )
         );
         $user->setRoles($request->get('role'));
+        $userDetail = new Detail;
+        $userDetail->setName($request->get('email'));
+        $userDetail->setSurname('Surname');
+        $userDetail->setBirthdate(new \DateTimeImmutable());
+        $user->setDetail($userDetail);
 
         $em->persist($user);
         $em->flush();
