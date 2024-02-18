@@ -20,4 +20,8 @@ export class UserService {
     params = params.set('email', email);
     return this.http.get<any>(environment.url + 'api/user/search/detail', { params: params });
   }
+
+  postNewUser(user: any): Observable<any> {
+    return this.http.post<any>(environment.url + 'api/user/new', user);
+  }
 }

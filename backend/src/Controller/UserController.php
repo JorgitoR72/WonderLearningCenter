@@ -85,7 +85,7 @@ class UserController extends AbstractController
     }
 
     #[Route('/new', name: 'app_new_user', methods: 'POST')]
-    public function createUser(DetailController $detailController, Request $request, EntityManagerInterface $em, UserPasswordHasherInterface $passwordHasher): JsonResponse
+    public function createUser(Request $request, EntityManagerInterface $em, UserPasswordHasherInterface $passwordHasher): JsonResponse
     {
         $request = $this->transformJsonBody($request);
         $user = new User();
@@ -96,7 +96,7 @@ class UserController extends AbstractController
                 $request->get('password')
             )
         );
-        $user->setRoles(['ROLE_STUDENT']);
+        $user->setRoles($request->get('role'));
 
         $em->persist($user);
         $em->flush();
