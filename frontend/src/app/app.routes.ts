@@ -1,8 +1,18 @@
 import { Routes } from '@angular/router';
-import { routesGuard } from './routes.guard';
 import { SiteComponent } from './layouts/site/site.component';
 import { SecurityComponent } from './layouts/security/security.component';
 import { DashboardComponent } from './layouts/dashboard/dashboard.component';
+import { dashboardaccessGuard } from './guards/dashboardaccess/dashboardaccess.guard';
+import { ProfileComponent } from './views/dashboard/profile/profile.component';
+import { MyprofileComponent } from './views/dashboard/profile/myprofile/myprofile.component';
+import { notstudentGuard } from './guards/notstudent/notstudent.guard';
+import { UserslistComponent } from './views/dashboard/profile/userslist/userslist.component';
+import { RegisterComponent } from './views/dashboard/profile/register/register.component';
+import { ScheduleComponent } from './views/dashboard/schedule/schedule.component';
+import { LoginComponent } from './views/security/login/login.component';
+import { HomeComponent } from './views/site/home/home.component';
+import { AboutusComponent } from './views/site/aboutus/aboutus.component';
+import { ContactComponent } from './views/site/contact/contact.component';
 
 
 export const routes: Routes = [
@@ -10,16 +20,77 @@ export const routes: Routes = [
   {
     path: 'site',
     component: SiteComponent,
-    loadChildren: () => import('./modules/site/site.module').then(m => m.SiteModule),
+    children: [
+      {
+        path: 'home',
+        component: HomeComponent
+      },
+      {
+        path: 'aboutus',
+        component: AboutusComponent
+      },
+      {
+        path: 'contact',
+        component: ContactComponent
+      },
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+      }
+    ]
   },
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [routesGuard],
-    loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule),
+    canActivate: [dashboardaccessGuard],
+    children: [
+      {
+        path: 'profile',
+        component: ProfileComponent,
+        children: [
+          {
+            path: 'myprofile',
+            component: MyprofileComponent
+          },
+          {
+            path: 'userslist',
+            canActivate: [notstudentGuard],
+            component: UserslistComponent
+          },
+          {
+            path: 'register',
+            canActivate: [notstudentGuard],
+            component: RegisterComponent
+          },
+          {
+            path: '',
+            redirectTo: 'myprofile',
+            pathMatch: 'full'
+          }
+        ]
+      },
+      {
+        path: 'schedule',
+        component: ScheduleComponent
+      },
+      {
+        path: '',
+        redirectTo: 'profile',
+        pathMatch: 'full'
+      }
+    ]
   },
   {
     path: 'security', component: SecurityComponent,
-    loadChildren: () => import('./modules/security/security.module').then(m => m.SecurityModule),
+    children: [
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: '', redirectTo: 'login', pathMatch: 'full'
+      }
+    ]
   }
 ];

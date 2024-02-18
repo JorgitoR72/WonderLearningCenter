@@ -1,9 +1,9 @@
-import { CanActivateFn, Router } from '@angular/router';
 import { Injectable } from '@angular/core';
+import { CanActivateFn, Router } from '@angular/router';
 
 @Injectable()
 
-class PermissionsService {
+class DashboardPermissions {
 
   constructor(private router: Router) { }
 
@@ -18,8 +18,7 @@ class PermissionsService {
   }
 }
 
-export const routesGuard: CanActivateFn = (route, state) => {
-  const permissionsService = new PermissionsService(new Router);
+export const dashboardaccessGuard: CanActivateFn = (route, state) => {
+  const permissionsService = new DashboardPermissions(new Router);
   return permissionsService.canActivate();
-
 };
