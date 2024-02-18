@@ -67,8 +67,9 @@ class Detail
         return date('Y-m-d', $this->birthdate->getTimestamp());
     }
 
-    public function setBirthdate(\DateTimeInterface $birthdate): static
+    public function setBirthdate(string $birthdate): static
     {
+        $birthdate = \DateTimeImmutable::createFromFormat('Y-m-d', $birthdate);
         $this->birthdate = $birthdate;
 
         return $this;

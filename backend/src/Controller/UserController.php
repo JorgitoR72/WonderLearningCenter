@@ -77,8 +77,8 @@ class UserController extends AbstractController
     #[Route('/delete/{id}', name: 'api_user_delete', methods: ['DELETE'])]
     public function delete($id, EntityManagerInterface $entityManager)
     {
-        $repository = $entityManager->getRepository(User::class);
-        $user = $repository->findOneBy(['id' => $id]);
+        $userrepository = $entityManager->getRepository(User::class);
+        $user = $userrepository->findOneBy(['id' => $id]);
 
         $entityManager->remove($user);
         $entityManager->flush();
@@ -99,9 +99,9 @@ class UserController extends AbstractController
         );
         $user->setRoles($request->get('role'));
         $userDetail = new Detail;
-        $userDetail->setName($request->get('email'));
-        $userDetail->setSurname('Surname');
-        $userDetail->setBirthdate(new \DateTimeImmutable());
+        $userDetail->setName($request->get('name'));
+        $userDetail->setSurname($request->get('surname'));
+        $userDetail->setBirthdate($request->get('birthdate'));
         $user->setDetail($userDetail);
 
         $em->persist($user);

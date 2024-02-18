@@ -17,6 +17,9 @@ export class RegisterComponent {
   protected form: FormGroup = new FormGroup({
     email: new FormControl(''),
     password: new FormControl(''),
+    name: new FormControl(''),
+    surname: new FormControl(''),
+    birthdate: new FormControl(''),
     role: new FormControl('ROLE_STUDENT'),
   })
 
