@@ -346,9 +346,8 @@ header
 
 .header-area {
   background-image: url(assets/images/header-bg\(1\).png);
-  background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: bottom;
   position: absolute;
   height: 89px;
   top: 0;
