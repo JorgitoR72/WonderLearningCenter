@@ -1,20 +1,33 @@
-<p>login works!</p>
-<div>
-  <div class="form_container">
-    <form (submit)="logCheck()" [formGroup]="form">
-      <div class="mb-3">
-        <label class="form-label" name="email" id="email" for="email">eMail</label>
-        <input class="form-control" formControlName="username" name="email" type="email">
+<section class="main-banner p-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 align-self-center">
+        <div class="section-heading m-0 log">
+          <h6>Acceder</h6>
+          <h4>Iniciar <em>Sesión</em></h4>
+          <br>
+          <div class="form_container">
+            <form class="text-start" (submit)="logCheck()" [formGroup]="form">
+              <div class="form-group mb-4">
+                <label class="form-label" name="email" id="email" for="email">Correo electrónico</label>
+                <input class="form-control" formControlName="username" name="email" type="email"
+                  placeholder="Ingresa tu correo electrónico">
+              </div>
+              <div class="form-group mb-4">
+                <label class="form-label" name="password" id="password" for="password">Contraseña</label>
+                <input class="form-control" formControlName="password" name="password" type="password"
+                  placeholder="Ingresa tu contraseña">
+              </div>
+              <button type="submit" class="btn btn-pr">Iniciar sesión</button>
+            </form>
+          </div>
+        </div>
       </div>
-      <div class="mb-3">
-        <label class="form-label" name="password" id="password" for="password">Password</label>
-        <input class="form-control" formControlName="password" name="password" type="password">
+      <div class="col-lg-6">
+        <div class="right-image">
+          <img src="assets/images/banner-user-image.png" alt="">
+        </div>
       </div>
-      <div>
-        <button class="btn btn-primary" type="submit">
-          Login
-        </button>
-      </div>
-    </form>
+    </div>
   </div>
-</div>
+</section>
