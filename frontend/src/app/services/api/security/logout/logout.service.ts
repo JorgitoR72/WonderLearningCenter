@@ -10,7 +10,7 @@ export class LogoutService {
 
   public async logOut() {
     window.localStorage.removeItem('token');
-    window.localStorage.removeItem('email');
-    this.router.navigate(['site']);
+    window.localStorage.removeItem('user');
+    this.router.navigate(['security']);
   }
 }

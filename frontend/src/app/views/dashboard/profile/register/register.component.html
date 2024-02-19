@@ -1,0 +1,43 @@
+<div>
+  <div>
+    Sign Up
+  </div>
+  <div class="form_container">
+    <form (submit)="registerUser()" [formGroup]="form">
+      <div class="mb-3">
+        <label class="form-label" name="email" id="email" for="email">eMail</label>
+        <input class="form-control" formControlName="email" name="email" type="email">
+      </div>
+      <div class="mb-3">
+        <label class="form-label" name="password" id="password" for="password">Password</label>
+        <input class="form-control" formControlName="password" name="password" type="password">
+      </div>
+      <div class="mb-3">
+        <label class="form-label" name="name" id="name" for="name">Name</label>
+        <input class="form-control" id="name" formControlName="name" name="name" type="text">
+      </div>
+      <div class="mb-3">
+        <label class="form-label" name="surname" id="surname" for="surname">Surname</label>
+        <input class="form-control" id="surname" formControlName="surname" name="surname" type="text">
+      </div>
+      <div class="mb-3">
+        <label class="form-label" name="birthdate" id="birthdate" for="birthdate">Birthdate</label>
+        <input class="form-control" id="birthdate" formControlName="birthdate" name="birthdate" type="date">
+      </div>
+      <div class="mb-3">
+        <label class="form-label" name="role" id="role" for="role">Role</label>
+        <select class="form-select" formControlName="role" name="role" id="role">
+          <option value="ROLE_STUDENT">Student</option>
+          <option value="ROLE_TEACHER">Teacher</option>
+          <option value="ROLE_ADMIN">Admin</option>
+        </select>
+      </div>
+
+      <div>
+        <button class="btn btn-primary" type="submit">
+          Add User
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
