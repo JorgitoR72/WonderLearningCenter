@@ -360,6 +360,13 @@ header
   transition: all .5s ease 0s;
 }
 
+@media (max-width: 1450px) {
+  .header-area {
+    background-size: contain;
+    background-position: center;
+  }
+}
+
 .header-area .main-nav {
   min-height: 80px;
   background: transparent;
