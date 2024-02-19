@@ -25,8 +25,9 @@
               "src/assets"
             ],
             "styles": [
+              "src/styles.css",
               "@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.css"
+              "node_modules/font-awesome/css/font-awesome.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
