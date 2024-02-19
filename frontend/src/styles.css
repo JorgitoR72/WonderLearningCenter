@@ -346,9 +346,8 @@ header
 
 .header-area {
   background-image: url(assets/images/header-bg\(1\).png);
-  background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: bottom;
   position: absolute;
   height: 89px;
   top: 0;
@@ -378,6 +377,7 @@ header
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
+  max-width: 250px;
 }
 
 .background-header .main-nav .logo {
@@ -2035,5 +2035,8 @@ body {
     font-size: 22px;
   }
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
