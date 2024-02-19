@@ -1,1 +1,99 @@
-<p>footer works!</p>
+<section class="contact-us our-office">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8" [ngStyle]="{'display': ruta === '/site/contact' ? 'block' : 'none'}">
+                <div id="map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7151.84524236698!2d-122.19494600413192!3d47.56605883252286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490695e625f8965%3A0xf99b055e76477def!2sNewcastle%20Beach%20Park%20Playground%2C%20Bellevue%2C%20WA%2098006%2C%20USA!5e0!3m2!1sen!2sth!4v1644335269264!5m2!1sen!2sth"
+                        width="100%" height="420px" frameborder="0"
+                        style="border:0; border-radius: 15px; position: relative; z-index: 2;"
+                        allowfullscreen=""></iframe>
+                    <div class="row">
+                        <div class="col-lg-4 offset-lg-1">
+                            <div class="contact-info">
+                                <div class="icon">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                                <h4>Teléfono</h4>
+                                <span>010-020-0340</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="contact-info">
+                                <div class="icon">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                                <h4>Móvil</h4>
+                                <span>090-080-0760</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4" [ngStyle]="{'display': ruta === '/site/contact' ? 'block' : 'none'}">
+                <form id="contact" action="" method="post">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="section-heading">
+                                <h6>Contacto</h6>
+                                <h4>Dudas? <em>Escribenos!</em></h4>
+                                <p>Si necesitas un formulario de contacto funcional mediante un script PHP, visita la
+                                    página de
+                                    contacto de TemplateMo para obtener más información.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <fieldset>
+                                <input type="name" name="name" id="name" placeholder="Nombre Completo" autocomplete="on"
+                                    required>
+                            </fieldset>
+                        </div>
+                        <div class="col-lg-12">
+                            <fieldset>
+                                <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*"
+                                    placeholder="Tu Correo Electrónico" required="">
+                            </fieldset>
+                        </div>
+                        <div class="col-lg-12">
+                            <fieldset>
+                                <textarea name="message" id="message" placeholder="Tu Mensaje"></textarea>
+                            </fieldset>
+                        </div>
+                        <div class="col-lg-12">
+                            <fieldset>
+                                <button type="submit" id="form-submit" class="main-gradient-button">Enviar
+                                    Mensaje</button>
+                            </fieldset>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-12" [ngStyle]="{'display': ruta === '/site/home' ? 'block' : 'none'}">
+                <div class="section-heading">
+                    <h6>Visítanos</h6>
+                    <h4>Visita <em>Nuestro Centro</em></h4>
+                </div>
+            </div>
+            <div class="col-lg-12 z-idx-5" [ngStyle]="{'display': ruta === '/site/home' ? 'block' : 'none'}">
+                <iframe width="770" height="370" src="https://www.youtube.com/embed/x6ggW8ei0yU?si=2KvBeJ6ExG3Viwve"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen style="border-radius: 20px;"></iframe>
+            </div>
+            <div class="col-lg-12" [ngStyle]="{'margin-top': ruta === '/site/aboutus' ? '350px' : '0px'}">
+                <ul class="social-icons">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-lg-12">
+                <p class="copyright">Copyright © 2022 EduWell Co, Code Alchemists. Todos los derechos Reservados.
+                    <br>Diseño: <a rel="sponsored" href="#" target="_blank">Code Alchemists</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

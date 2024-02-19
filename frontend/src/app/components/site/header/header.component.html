@@ -1,1 +1,35 @@
-<p>header works!</p>
+<header class="header-area header-sticky">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Inicia Logotipo ***** -->
+            <a href="index.html" class="logo">
+              <img src="assets/images/templatemo-eduwell.png" width="65" height="65" alt="Wonder learning center">
+            </a>
+            <!-- ***** Termina Logotipo ***** -->
+            <!-- ***** Menú Inicia ***** -->
+            <ul class="nav" [ngClass]="{'active': menuIsActive}">
+              <li class="scroll-to-section"><a href="#top">Inicio</a></li>
+              <li class="scroll-to-section"><a href="#services">Servicios</a></li>
+              <li class="scroll-to-section"><a href="#courses">Cursos</a></li>
+              <li class="has-sub">
+                <a href="javascript:void(0)">Páginas</a>
+                <ul class="sub-menu">
+                  <li><a href="about-us.html">Sobre Nosotros</a></li>
+                  <li class="scroll-to-section"><a href="#testimonials">Testimonios</a></li>
+                  <li><a href="contact-us.html">Contáctenos</a></li>
+                </ul>
+              </li>
+              <li><a href="acces.html" class="d-flex align-items-center justify-content-center"><i
+                    class="fa fa-user-circle fa-2x fa-fw"></i>Accerder</a></li>
+            </ul>
+            <a class='menu-trigger' [ngClass]="{'active': menuIsActive}" (click)="toggleMenu()">
+              <span>Menu</span>
+            </a>            
+            <!-- ***** Menú Termina ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+</header>
