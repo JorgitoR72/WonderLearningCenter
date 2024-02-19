@@ -863,9 +863,6 @@ services
 .services .item {
   border-radius: 15px;
   text-align: center;
-  padding: 50px 30px;
-  margin: 15px;
-  transition: all .3s;
 }
 
 .services .item:hover {
@@ -886,24 +883,6 @@ services
   font-size: 20px;
   font-weight: 800;
 }
-
-.services .owl-dots {
-  text-align: center;
-  margin-top: 30px;
-}
-
-.services .owl-dots .owl-dot {
-  width: 10px;
-  height: 10px;
-  background-color: #ddd;
-  border-radius: 50%;
-  margin: 0px 4px;
-}
-
-.services .owl-dots .active {
-  background-color: #A57EBF;
-}
-
 
 /*
 ---------------------------------------------
