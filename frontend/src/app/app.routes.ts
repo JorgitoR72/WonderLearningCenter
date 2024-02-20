@@ -13,6 +13,7 @@ import { LoginComponent } from './views/security/login/login.component';
 import { HomeComponent } from './views/site/home/home.component';
 import { AboutusComponent } from './views/site/aboutus/aboutus.component';
 import { ContactComponent } from './views/site/contact/contact.component';
+import { SubjectsComponent } from './views/dashboard/subjects/subjects.component';
 
 
 export const routes: Routes = [
@@ -73,6 +74,10 @@ export const routes: Routes = [
       {
         path: 'schedule',
         component: ScheduleComponent
+      },
+      {
+        path: 'subjects',
+        component: SubjectsComponent
       },
       {
         path: '',
