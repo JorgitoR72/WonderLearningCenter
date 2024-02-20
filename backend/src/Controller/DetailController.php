@@ -34,25 +34,4 @@ class DetailController extends AbstractController
         // Crear y devolver una JsonResponse
         return new JsonResponse($jsonContent, 200, ['status' => 'user_listall'], true);
     }
-
-    #[Route('/new', name: 'app_detail_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager)
-    {
-        $detail = new Detail();
-    }
-
-    #[Route('/{id}', name: 'app_detail_show', methods: ['GET'])]
-    public function show(Detail $detail)
-    {
-    }
-
-    #[Route('/{id}/edit', name: 'app_detail_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Detail $detail, EntityManagerInterface $entityManager)
-    {
-    }
-
-    #[Route('/{id}', name: 'app_detail_delete', methods: ['POST'])]
-    public function delete(Request $request, Detail $detail, EntityManagerInterface $entityManager)
-    {
-    }
 }

@@ -17,7 +17,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   styleUrl: './userslist.component.css'
 })
 export class UserslistComponent {
-  constructor(public logoutSecurityService: LogoutService, public detailService: DetailService) { }
+  constructor(public logoutSecurityService: LogoutService, public userService: UserService, public detailService: DetailService) { }
   public dataSource: MatTableDataSource<Userdetail> = new MatTableDataSource<Userdetail>;
   public allusers: Userdetail[] = [];
 
@@ -31,9 +31,19 @@ export class UserslistComponent {
 
   }
 
-  filtrar(event: Event) {
+  private deleteUser(id: number) {
+    return this.userService.deleteUser(id).subscribe((res) => {
+      console.log(res)
+    })
+  }
+
+  public filtrar(event: Event) {
     const filtro = (event.target as HTMLInputElement).value.trim().toLowerCase();
     this.dataSource.filter = filtro;
+  }
+
+  public delete(id: number) {
+    this.deleteUser(id)
   }
 
 
