@@ -1,0 +1,11 @@
+<p>subjects works!</p>
+<div class="container">
+  <div class="row">
+    @for (subject of subjects; track $index) {
+    <div class="card col-md-6">
+      <h1> {{subject.name}} </h1>
+      <h3> Level: {{subject.level}} </h3>
+    </div>
+    }
+  </div>
+</div>
