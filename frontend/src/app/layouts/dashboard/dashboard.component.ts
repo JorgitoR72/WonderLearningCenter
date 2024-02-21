@@ -10,4 +10,9 @@ import { RouterOutlet } from '@angular/router';
 })
 export class DashboardComponent {
 
+  public expand() {
+    const sidebar: any = document.querySelector("#sidebar")
+    sidebar.classList.toggle("expand");
+  }
+
 }

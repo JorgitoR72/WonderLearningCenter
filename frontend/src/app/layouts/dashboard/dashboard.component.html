@@ -1,2 +1,86 @@
-<p>dashboard works!</p>
-<router-outlet></router-outlet>
+<div class="wrapper">
+  <aside id="sidebar">
+    <div class="d-flex">
+      <button id="toggle-btn" (click)="expand()" type="button">
+        <i class="fa fa-th-large"></i>
+      </button>
+      <div class="sidebar-logo">
+        <a href="#">Wonder Learning</a>
+      </div>
+    </div>
+    <ul class="sidebar-nav">
+      <li class="sidebar-item">
+        <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse" data-bs-target="#profile"
+          aria-expanded="false" aria-controls="profile">
+          <i class="fa fa-user"></i>
+          <span>Profile</span>
+        </a>
+        <ul id="profile" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+          <li class="sidebar-item">
+            <a href="#" class="sidebar-link">My Profile</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="#" class="sidebar-link">Users List</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="#" class="sidebar-link">Register</a>
+          </li>
+        </ul>
+      </li>
+      <li class="sidebar-item">
+        <a href="#" class="sidebar-link">
+          <i class="fa fa-calendar"></i>
+          <span>Schedule</span>
+        </a>
+      </li>
+      <li class="sidebar-item">
+        <a href="#" class="sidebar-link">
+          <i class="fa fa-book"></i>
+          <span>Subjects</span>
+        </a>
+      </li>
+    </ul>
+    <div class="sidebar-footer">
+      <a href="#" class="sidebar-link">
+        <i class="fa fa-sign-out"></i>
+        <span>Logout</span>
+      </a>
+    </div>
+  </aside>
+  <div class="main">
+    <nav class="navbar navbar-expand px-4 py-3">
+      <form action="#" class="d-none d-sm-inline-block">
+        <div class="input-group input-group-navbar">
+          <input type="text" class="form-control border-0 rounded" placeholder="Search...">
+          <button class="btn border-0 rounded-0 ">
+            Search
+          </button>
+        </div>
+      </form>
+      <div class="navbar-collapse collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="navbar-item dropdown">
+            <a href="" class="nav-icon pe-md-0" data-bs-toggle="dropdown">
+              <img src="#" class="avatar img-fluid" alt="">
+            </a>
+            <div class="dropdown-menu dropdown-menu-end rounded">
+              <a href="#" class="dropdown-item">
+                <i class="fa fa-user"></i>
+                <span>Profile</span>
+              </a>
+              <a href="#" class="dropdown-item">
+                <i class="fa fa-time"></i>
+                <span>Settings</span>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main class="content px-4 py-3">
+      <div class="container-fluid">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </div>
+</div>
