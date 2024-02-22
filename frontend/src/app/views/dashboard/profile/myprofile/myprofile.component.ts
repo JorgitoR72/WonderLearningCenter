@@ -22,7 +22,6 @@ export class MyprofileComponent {
     this.user = JSON.parse(userJSON)
   }
 
-
   ngOnInit() {
     this.getUserData()
   }

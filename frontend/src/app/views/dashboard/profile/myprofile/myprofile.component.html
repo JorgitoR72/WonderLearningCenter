@@ -1,18 +1,47 @@
-<div>
-  <h4>Email:</h4>
-  <p> {{user.email}} </p>
+<div class="grid-container">
+  <h2>Perfil</h2>
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="profile-container">
+        <div class="profile-header">
+          <img src="https://thumbs.dreamstime.com/b/icono-del-perfil-del-placeholder-del-defecto-90197993.jpg"
+            alt="Profile Picture" />
+          <div class="profile-info">
+            <h2>{{user.detail.name}} {{user.detail.surname}}</h2>
+            <p>{{user.roles[0]}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="profile-details">
+        <h3>Información del Usuario</h3>
+        <p>Correo: {{user.email}}</p>
+        <p>Fecha de nacimiento: {{user.detail.birthdate}}</p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="politics">
+        <h3>Privacidad y Políticas</h3>
+        <p>Resumen de retención de datos</p>
+        <p>Políticas de privacidad</p>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="profile-details">
+        <h3>Cursos</h3>
+        <ul>
+          <li>Curso 1</li>
+          <li>Curso 2</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
-<div>
-  <h4>Name:</h4>
-  <p> {{user.detail.name}} </p>
+<div class="main-button-gradient">
+  <a href="#" (click)="logout()">LogOut</a>
 </div>
-<div>
-  <h4>Surname:</h4>
-  <p> {{user.detail.surname}} </p>
-</div>
-<div>
-  <h4>Birthdate:</h4>
-  <p> {{user.detail.birthdate}} </p>
-</div>
-<br>
-<button (click)="logout()">LogOut</button>

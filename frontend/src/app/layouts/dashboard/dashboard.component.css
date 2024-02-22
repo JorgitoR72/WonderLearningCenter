@@ -24,7 +24,6 @@ li {
   width: 100%;
   overflow: hidden;
   transition: all 0.35s ease-in-out;
-  background-color: #fff;
   min-width: 0;
 }
 
@@ -33,7 +32,7 @@ li {
   min-width: 70px;
   z-index: 1000;
   transition: all .25s ease-in-out;
-  background: linear-gradient(45deg, rgba(242, 220, 153, 1) 6%, rgba(188, 121, 217, 1));
+  background: linear-gradient(180deg, rgba(188, 121, 217, 1) 26%, rgba(242, 220, 153, 1) 76%);
   display: flex;
   flex-direction: column;
 }
@@ -47,11 +46,10 @@ li {
   background-color: transparent;
   cursor: pointer;
   border: 0;
-  padding: 1rem 1.5rem;
+  padding: 1.16rem;
 }
 
 #toggle-btn i {
-  font-size: 1.5rem;
   color: #FFF;
 }
 
@@ -91,18 +89,17 @@ li {
 }
 
 a.sidebar-link {
-  padding: .625rem 1.625rem;
+  padding: 1rem;
   color: #FFF;
   display: block;
   font-size: 0.9rem;
+  font-weight: 650;
   white-space: nowrap;
   border-left: 3px solid transparent;
 }
 
-.sidebar-link i,
-.dropdown-item i {
-  font-size: 1.1rem;
-  margin-right: .75rem;
+a.sidebar-link span {
+  margin-left: 1rem;
 }
 
 a.sidebar-link:hover {
@@ -150,7 +147,7 @@ a.sidebar-link:hover {
 }
 
 .navbar {
-  background-color: #f5f5f5;
+  background: linear-gradient(90deg, rgba(188, 121, 217, 1) 26%, rgba(242, 220, 153, 1) 76%);
   box-shadow: 0 0 2rem 0 rgba(33, 37, 41, .1);
 }
 
@@ -159,7 +156,6 @@ a.sidebar-link:hover {
 }
 
 .avatar {
-  height: 40px;
   width: 40px;
 }
 
@@ -168,5 +164,30 @@ a.sidebar-link:hover {
   border-radius: 10px;
 }
 
-
 @media (min-width: 768px) {}
+
+#decoration::before {
+  position: absolute;
+  content: '';
+  background-image: url(../../../assets/images/testimonials-left-dec.png);
+  left: 70px;
+  top: 140px;
+  width: 593px;
+  height: 352px;
+  z-index: 1;
+}
+
+#decoration1::before {
+  position: absolute;
+  content: '';
+  background-image: url(../../../assets/images/testimonials-right-dec.png);
+  right: 0px;
+  bottom: 60px;
+  width: 632px;
+  height: 352px;
+  z-index: 1;
+}
+
+.z-i {
+  z-index: 5;
+}

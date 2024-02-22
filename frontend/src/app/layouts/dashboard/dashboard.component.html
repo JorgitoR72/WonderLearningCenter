@@ -1,8 +1,8 @@
 <div class="wrapper">
   <aside id="sidebar">
-    <div class="d-flex">
+    <div class="d-flex align-items-center justify-content-center">
       <button id="toggle-btn" (click)="expand()" type="button">
-        <i class="fa fa-th-large"></i>
+        <i class="fa fa-th-large fa-2x"></i>
       </button>
       <div class="sidebar-logo">
         <a href="#">Wonder Learning</a>
@@ -12,7 +12,7 @@
       <li class="sidebar-item">
         <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse" data-bs-target="#profile"
           aria-expanded="false" aria-controls="profile">
-          <i class="fa fa-user"></i>
+          <i class="fa fa-user fa-2x"></i>
           <span>Profile</span>
         </a>
         <ul id="profile" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
@@ -29,47 +29,39 @@
       </li>
       <li class="sidebar-item">
         <a href="#" class="sidebar-link">
-          <i class="fa fa-calendar"></i>
+          <i class="fa fa-calendar fa-2x"></i>
           <span>Schedule</span>
         </a>
       </li>
       <li class="sidebar-item">
         <a href="#" class="sidebar-link">
-          <i class="fa fa-book"></i>
+          <i class="fa fa-book fa-2x"></i>
           <span>Subjects</span>
         </a>
       </li>
     </ul>
     <div class="sidebar-footer">
       <a href="#" class="sidebar-link">
-        <i class="fa fa-sign-out"></i>
+        <i class="fa fa-sign-out fa-2x"></i>
         <span>Logout</span>
       </a>
     </div>
   </aside>
   <div class="main">
     <nav class="navbar navbar-expand px-4 py-3">
-      <form action="#" class="d-none d-sm-inline-block">
-        <div class="input-group input-group-navbar">
-          <input type="text" class="form-control border-0 rounded" placeholder="Search...">
-          <button class="btn border-0 rounded-0 ">
-            Search
-          </button>
-        </div>
-      </form>
       <div class="navbar-collapse collapse">
         <ul class="navbar-nav ms-auto">
           <li class="navbar-item dropdown">
             <a href="" class="nav-icon pe-md-0" data-bs-toggle="dropdown">
-              <img src="#" class="avatar img-fluid" alt="">
+              <img src="../../../assets/images/logo-icon.png" class="avatar img-fluid" alt="">
             </a>
             <div class="dropdown-menu dropdown-menu-end rounded">
               <a href="#" class="dropdown-item">
-                <i class="fa fa-user"></i>
+                <i class="fa fa-user fa-2x"></i>
                 <span>Profile</span>
               </a>
               <a href="#" class="dropdown-item">
-                <i class="fa fa-time"></i>
+                <i class="fa fa-time fa-2x"></i>
                 <span>Settings</span>
               </a>
             </div>
@@ -77,10 +69,12 @@
         </ul>
       </div>
     </nav>
-    <main class="content px-4 py-3">
+    <div id="decoration"></div>
+    <main class="content px-4 py-3 z-i">
       <div class="container-fluid">
         <router-outlet></router-outlet>
       </div>
     </main>
+    <div id="decoration1"></div>
   </div>
 </div>
