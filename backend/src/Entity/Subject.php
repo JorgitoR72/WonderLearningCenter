@@ -27,10 +27,15 @@ class Subject
     #[ORM\OneToMany(targetEntity: Lesson::class, mappedBy: 'subject')]
     private Collection $lessons;
 
+    #[ORM\OneToMany(targetEntity: File::class, mappedBy: 'subject')]
+    private Collection $files;
+
+
     public function __construct()
     {
         $this->students = new ArrayCollection();
         $this->lessons = new ArrayCollection();
+        $this->files = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -113,6 +118,36 @@ class Subject
             // set the owning side to null (unless already changed)
             if ($lesson->getSubject() === $this) {
                 $lesson->setSubject(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, File>
+     */
+    public function getFiles(): Collection
+    {
+        return $this->files;
+    }
+
+    public function addFile(File $file): static
+    {
+        if (!$this->files->contains($file)) {
+            $this->files->add($file);
+            $file->setSubject($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFile(File $file): static
+    {
+        if ($this->files->removeElement($file)) {
+            // set the owning side to null (unless already changed)
+            if ($file->getSubject() === $this) {
+                $file->setSubject(null);
             }
         }
 
