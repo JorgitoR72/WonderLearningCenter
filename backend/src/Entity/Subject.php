@@ -27,7 +27,7 @@ class Subject
     #[ORM\OneToMany(targetEntity: Lesson::class, mappedBy: 'subject')]
     private Collection $lessons;
 
-    #[ORM\OneToMany(targetEntity: File::class, mappedBy: 'subject')]
+    #[ORM\OneToMany(targetEntity: File::class, mappedBy: 'subject', cascade: ['persist', 'remove'])]
     private Collection $files;
 
 

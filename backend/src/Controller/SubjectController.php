@@ -14,7 +14,7 @@ use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 
-#[Route('api/subject')]
+#[Route('subject')]
 class SubjectController extends AbstractController
 {
   #[Route('/search/all', name: 'api_subject_listall', methods: ['GET'])]
@@ -42,7 +42,7 @@ class SubjectController extends AbstractController
     $subject = $repository->findOneBy(['id' => $id]);
     $file = new File;
     $file->setName($request->get('name'));
-    $file->setName($request->get('url'));
+    $file->setUrl($request->get('url'));
     $subject->addFile($file);
 
     $em->persist($subject);
