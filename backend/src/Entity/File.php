@@ -54,9 +54,9 @@ class File
         return $this;
     }
 
-    public function getSubject(): ?Subject
+    public function getSubject()
     {
-        return $this->subject;
+        return $this->subject->getId();
     }
 
     public function setSubject(?Subject $subject): static

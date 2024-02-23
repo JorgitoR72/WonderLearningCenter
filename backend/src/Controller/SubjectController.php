@@ -14,7 +14,7 @@ use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 
-#[Route('subject')]
+#[Route('api/subject')]
 class SubjectController extends AbstractController
 {
   #[Route('/search/all', name: 'api_subject_listall', methods: ['GET'])]
