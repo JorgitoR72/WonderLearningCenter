@@ -85,7 +85,7 @@ class UserController extends AbstractController
         return new JsonResponse(['status' => 'user_deleted']);
     }
 
-    #[Route('/new', name: 'app_new_user', methods: 'POST')]
+    #[Route('/new', name: 'api_new_user', methods: 'POST')]
     public function createUser(Request $request, EntityManagerInterface $em, UserPasswordHasherInterface $passwordHasher): JsonResponse
     {
         $request = $this->transformJsonBody($request);

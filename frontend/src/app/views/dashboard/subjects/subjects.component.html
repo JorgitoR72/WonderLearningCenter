@@ -1,10 +1,26 @@
 <p>subjects works!</p>
 <div class="container">
   <div class="row">
+    @if (!showBigCardFlag) {
     @for (subject of subjects; track $index) {
-    <div class="card col-md-6">
+    <div class="card col-md-6" (click)="showBigCard(subject)">
       <h1> {{subject.name}} </h1>
       <h3> Level: {{subject.level}} </h3>
+    </div>
+    }
+    } @else if (showBigCardFlag) {
+    <div class="card big-card">
+      <div class="close-button" (click)="showAllCards()">X</div>
+      {{openSubject.name}}
+      {{openSubject.level}}
+      @if (openSubject.files[0] == undefined) {
+      <p>No Files Here</p>
+      } @else {
+      <p>Files:</p>
+      @for (file of openSubject.files; track $index) {
+      <a (click)="showFile(file.url)" href="file.url"> {{file.name}} </a>
+      }
+      }
     </div>
     }
   </div>

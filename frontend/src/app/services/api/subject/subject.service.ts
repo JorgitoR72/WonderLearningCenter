@@ -14,4 +14,8 @@ export class SubjectService {
   public getAllSubjects(): Observable<any> {
     return this.http.get<any>(environment.url + 'api/subject/search/all');
   }
+
+  public postNewFile(id: number, subject: any): Observable<any> {
+    return this.http.post<any>(environment.url + 'api/subject/new/file/' + id, subject);
+  }
 }
