@@ -1,11 +1,12 @@
 import { Component, SecurityContext } from '@angular/core';
 import { SubjectService } from '../../../services/api/subject/subject.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-subjects',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './subjects.component.html',
   styleUrl: './subjects.component.css'
 })
@@ -13,8 +14,14 @@ export class SubjectsComponent {
 
   constructor(public subjectService: SubjectService, public sanitizer: DomSanitizer) { }
 
+  protected file: FormGroup = new FormGroup({
+    name: new FormControl(''),
+    url: new FormControl(''),
+  })
+
   public subjects: any[] = [];
   public openSubject: any = {
+    id: 0,
     name: '',
     level: '',
     files: [],
@@ -30,6 +37,7 @@ export class SubjectsComponent {
   }
 
   public showBigCard(subject: any): void {
+    this.openSubject.id = subject.id
     this.openSubject.name = subject.name
     this.openSubject.level = subject.level
     this.openSubject.files = subject.files
@@ -38,6 +46,7 @@ export class SubjectsComponent {
 
   public showAllCards(): void {
     this.showBigCardFlag = false;
+    this.file.reset()
   }
 
   public getAllSubjects() {
@@ -45,6 +54,20 @@ export class SubjectsComponent {
       this.subjects = res
       console.log(this.subjects)
     })
+  }
+
+  public postNewFile(id: any) {
+    let file = this.file.value;
+    this.subjectService.postNewFile(id, file).subscribe((res) => {
+      let newFile = {
+        name: file.name,
+        url: file.url,
+        subject: id,
+      }
+      this.openSubject.files.push(newFile)
+      console.log(this.openSubject.files)
+    })
+    this.file.reset()
   }
 
   ngOnInit() {
