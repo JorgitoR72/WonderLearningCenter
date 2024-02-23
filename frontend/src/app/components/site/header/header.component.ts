@@ -11,8 +11,13 @@ import { NgClass, NgStyle } from '@angular/common';
 })
 export class HeaderComponent {
   menuIsActive: boolean = false;
+  menuSubActive: boolean = false;
 
   toggleMenu() {
     this.menuIsActive = !this.menuIsActive;
+  }
+
+  toggleSubMenu() {
+    this.menuSubActive = !this.menuSubActive;
   }
 }
