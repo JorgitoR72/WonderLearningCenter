@@ -1,0 +1,70 @@
+/* Estilos para el contenedor de perfil */
+
+.profile-container {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-family: 'Open Sans';
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilos para la cabecera del perfil */
+  .profile-header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-header img {
+    width: 10%;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  
+  .profile-info h2 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  .profile-info p {
+    margin: 5px 0;
+  }
+  
+  /* Estilos para los detalles del perfil */
+  .profile-details {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 5px 5px 20px 5px;
+    font-family: 'Open Sans';
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-details h3 {
+    margin-top: 0;
+  }
+  
+  .profile-details ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .profile-details ul li {
+    margin-bottom: 5px;
+  }
+
+  .politics {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 5px 5px 20px 5px;
+    font-family: 'Open Sans';
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .politics h3 {
+    margin-top: 0;
+  }
