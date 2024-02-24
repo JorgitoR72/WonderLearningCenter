@@ -1,43 +1,76 @@
-<p>subjects works!</p>
 <div class="container">
-  <div class="row">
+  <h2 class="z-i">Subjects</h2>
+  <br>
+  <div class="row justify-content-md-center">
     @if (!showBigCardFlag) {
     @for (subject of subjects; track $index) {
-    <div class="card col-md-6" (click)="showBigCard(subject)">
-      <h1> {{subject.name}} </h1>
-      <h3> Level: {{subject.level}} </h3>
+    <div class="col-md-4 p-3 z-i">
+      <div class="card" (click)="showBigCard(subject)">
+        <div class="card-header">
+          <h6 class="card-title text-center"> {{subject.name}} </h6>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Level: {{subject.level}}</p>
+        </div>
+      </div>
     </div>
     }
     } @else if (showBigCardFlag) {
-    <div class="card big-card">
-      <div class="close-button" (click)="showAllCards()">X</div>
-      {{openSubject.name}}
-      {{openSubject.level}}
-      @if (openSubject.files[0] == undefined) {
-      <p>No Files Here</p>
-      } @else {
-      <p>Files:</p>
-      @for (file of openSubject.files; track $index) {
-      <a (click)="showFile(file.url)" href="file.url"> {{file.name}} </a>
-      }
-      }
-    </div>
-    <div class="form_container">
-      <form class="row" (submit)="postNewFile(openSubject.id)" [formGroup]="file">
-        <div class="col-md-6">
-          <label class="form-label" name="name" id="name" for="name">Name</label>
-          <input class="form-control" formControlName="name" name="name" type="text">
+    <div class="col-md-6 z-i">
+      <div class="card">
+        <div class="card-header">
+          <div class="close-button" (click)="showAllCards()">X</div>
+          <div class="text-center">
+            <h5>{{openSubject.name}} {{openSubject.level}}</h5>
+          </div>
         </div>
-        <div class="col-md-6">
-          <label class="form-label" name="url" id="url" for="url">Url</label>
-          <input class="form-control" formControlName="url" name="url" type="text">
+        <div class="card-body">
+          @if (openSubject.files[0] == undefined) {
+          <p>No Files Here</p>
+          } @else {
+          <h6>Files:</h6>
+          <ul class="list-group list-group-flush">
+            @for (file of openSubject.files; track $index) {
+            <li class="list-group-item"><a (click)="showFile(file.url)" href="file.url"> {{file.name}} </a></li>
+            }
+          </ul>
+          }
         </div>
-        <div>
-          <button class="btn btn-primary" type="submit">
-            Add File
+        <div class="card-footer">
+          <!-- Button trigger modal -->
+          <button class="btn btn-styles-2" type="button" data-bs-toggle="modal" data-bs-target="#modalFile">
+            New File
           </button>
         </div>
-      </form>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="modalFile" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="modalFileLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="modalFileLabel">New File</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form (submit)="postNewFile(openSubject.id)" [formGroup]="file">
+            <div class="modal-body">
+              <div class="mb-3">
+                <label class="form-label" name="name" id="name" for="name">Name</label>
+                <input class="form-control" formControlName="name" name="name" type="text">
+              </div>
+              <div class="mb-3">
+                <label class="form-label" name="url" id="url" for="url">Url</label>
+                <input class="form-control" formControlName="url" name="url" type="text">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-styles-2" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-styles-1" data-bs-dismiss="modal">Add File</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
     }
   </div>

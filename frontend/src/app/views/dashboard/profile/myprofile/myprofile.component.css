@@ -36,6 +36,7 @@
   /* Estilos para los detalles del perfil */
   .profile-details {
     border: 1px solid #ddd;
+    background-color: #f9f9f9;
     border-radius: 5px;
     padding: 20px;
     margin: 5px 5px 20px 5px;
@@ -58,6 +59,7 @@
 
   .politics {
     border: 1px solid #ddd;
+    background-color: #f9f9f9;
     border-radius: 5px;
     padding: 20px;
     margin: 5px 5px 20px 5px;
