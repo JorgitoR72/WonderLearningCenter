@@ -2075,3 +2075,8 @@ body {
   border: #f2dc99;
   background-color: #f2dc99;
 }
+
+.z-i {
+  position: relative;
+  z-index: 2;
+}
