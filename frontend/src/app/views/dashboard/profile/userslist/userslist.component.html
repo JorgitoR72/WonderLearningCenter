@@ -1,5 +1,5 @@
 <!-- @if(user.roles[0] !== 'STUDENT_ROLE'){ -->
-<div class="z-i">
+<div class="form-style z-i">
   <h2>All Users</h2>
   <br>
   <mat-form-field>
@@ -10,9 +10,6 @@
   <div class="userdetaillist-table">
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-      <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
 
       <!-- Position Column -->
       <ng-container matColumnDef="name">
@@ -42,24 +39,3 @@
     </table>
   </div>
 </div>
-
-<!-- <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Surname</th>
-      <th>Birthdate</th>
-    </tr>
-  </thead>
-  <tbody>
-    @for (user of allusers; track $index) {
-    <tr>
-      <td>{{user.name}}</td>
-      <td>{{user.surname}}</td>
-      <td>{{user.birthdate}}</td>
-
-    </tr>
-    }
-  </tbody>
-</table> -->
-<!-- } -->
