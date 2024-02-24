@@ -10,8 +10,14 @@ import { NgClass, NgStyle } from '@angular/common';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  menuIsActive: boolean = false;
-  menuSubActive: boolean = false;
+
+  public menuIsActive: boolean = false;
+
+  public logged: any = window.localStorage.getItem('user')
+  public user: any = JSON.parse(this.logged)
+
+  public menuSubActive: boolean = false;
+
 
   toggleMenu() {
     this.menuIsActive = !this.menuIsActive;

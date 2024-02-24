@@ -4,6 +4,7 @@ import { LoginService } from '../../../services/api/security/login/login.service
 import { UserService } from '../../../services/api/user/user.service';
 import { Router } from '@angular/router';
 import { switchMap } from 'rxjs';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -33,6 +34,9 @@ export class LoginComponent {
       })
     ).subscribe((userResponse: any) => {
       window.localStorage.setItem('user', JSON.stringify(userResponse));
+      if (userResponse.roles[0] !== 'ROLE_STUDENT') {
+        window.localStorage.setItem('permissions', 'true');
+      }
       this.router.navigate(['dashboard']);
     }, error => {
       console.error("Error:", error); // Maneja el error de getUserbyEmail
