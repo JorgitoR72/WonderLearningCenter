@@ -1,0 +1,34 @@
+.close-button {
+    float: right;
+    cursor: pointer;
+}
+
+.card {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #a57ebf97;
+}
+
+.card-footer {
+    background-color: #f2dc9930;
+}
+
+.btn-styles-1 {
+    background-color: #a57ebf;
+    color: white;
+}
+
+.btn-styles-1:hover {
+    background-color: #9672ad;
+}
+
+.btn-styles-2 {
+    background-color: #f2dc99;
+    color: white;
+}
+
+.btn-styles-2:hover {
+    background-color: #d6c388;
+}
