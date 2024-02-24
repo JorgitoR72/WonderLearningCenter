@@ -8,10 +8,8 @@ class NotStudentPermissions {
   constructor(private router: Router) { }
 
   canActivate(): any {
-    let user: any = window.localStorage.getItem('user')
-    user = JSON.parse(user)
-    const userRole = user.roles[0]
-    if (userRole !== 'ROLE_STUDENT') {
+    let permissions: any = window.localStorage.getItem('permissions')
+    if (permissions) {
       return true
     } else {
       this.router.navigate(['dashboard'])
