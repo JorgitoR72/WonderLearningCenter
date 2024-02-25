@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
   templateUrl: './schedule.component.html',
   styleUrl: './schedule.component.css'
 })
-export class ScheduleComponent  implements OnInit  {
+export class ScheduleComponent implements OnInit {
   currentDate: Date = new Date();
   selectedDate: Date | null = null;
   public calendar: (Date | null)[][] = [];
@@ -22,11 +22,11 @@ export class ScheduleComponent  implements OnInit  {
   allEvents: { date: Date, title: string }[] = [];
   currentMonthEvents: { date: Date, title: string }[] = [];
   newEventDay: number | null = new Date().getDate();
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   showingEventDetails: boolean = false;
   selectedEvent: { date: Date, title: string } = { date: new Date(), title: '' };
-  
+
 
   getCalendarDays(year: number, month: number): { day: number | null, inMonth: boolean }[] {
     const firstDay = new Date(year, month, 1).getDay();
@@ -144,7 +144,7 @@ export class ScheduleComponent  implements OnInit  {
     console.log('Botón clickeado');
     this.showEventForm = true;
   }
- 
+
   newEventTime: string = "";
   addEvent(): void {
     if (this.newEventDay !== null && this.newEventDescription.trim() !== "") {
@@ -152,7 +152,7 @@ export class ScheduleComponent  implements OnInit  {
       const [hours, minutes] = this.newEventTime.split(':').map(part => parseInt(part, 10));
       newEventDate.setHours(hours);
       newEventDate.setMinutes(minutes);
-      
+
       // Añade el nuevo evento al array de todos los eventos
       this.allEvents.push({ date: newEventDate, title: this.newEventDescription });
 
@@ -177,11 +177,11 @@ export class ScheduleComponent  implements OnInit  {
         // Handle error as needed
       });
   }
-  
+
   ngOnInit(): void {
     this.fetchEvents(); // Fetch events from API on component initialization
   }
-  
+
   getEventsForDay(day: Date | null): { date: Date, title: string }[] {
     if (day) {
       const eventsForDay = this.allEvents.filter(event => event.date.toDateString() === day.toDateString());
@@ -190,10 +190,10 @@ export class ScheduleComponent  implements OnInit  {
       return []; // o cualquier otro manejo para el caso de null
     }
   }
-  
-  
-  
-  
+
+
+
+
 
   calendar2: { date: Date | null, events: { date: Date, title: string }[] }[][] = [];
   getCalendar2(): { date: Date | null, events: { date: Date, title: string }[] }[][] {
@@ -221,7 +221,7 @@ export class ScheduleComponent  implements OnInit  {
     // Ensure 'event.date' is present and is a valid Date object
     if (event && event.date) {
       const eventDate = new Date(event.date);
-  
+
       // Remove the event from allEvents array
       this.allEvents = this.allEvents.filter(currentEvent => {
         const currentEventDate = new Date(currentEvent.date);
@@ -231,20 +231,20 @@ export class ScheduleComponent  implements OnInit  {
           currentEventDate.toDateString() !== eventDate.toDateString()
         );
       });
-  
+
       // Update the calendar and localStorage
       this.updateCalendar();
       localStorage.setItem('allEvents', JSON.stringify(this.allEvents));
     }
   }
-  
-  
-  
+
+
+
   hasEvent(day: Date | null): boolean {
     if (!day) {
       return false;
     }
-    
+
     // Lógica para determinar si el día tiene eventos asociados
     return this.events.some(event => event.date.toDateString() === day.toDateString());
   }
@@ -255,5 +255,5 @@ export class ScheduleComponent  implements OnInit  {
       this.showingEventDetails = true;
     }
   }
-  
+
 }
