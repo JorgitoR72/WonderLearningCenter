@@ -36,15 +36,18 @@
           </ul>
           }
         </div>
+        @if (role == 'ROLE_TEACHER') {
         <div class="card-footer">
           <!-- Button trigger modal -->
           <button class="btn btn-styles-2" type="button" data-bs-toggle="modal" data-bs-target="#modalFile">
             New File
           </button>
         </div>
+        }
       </div>
     </div>
     <!-- Modal -->
+    @if (role == 'ROLE_TEACHER') {
     <div class="modal fade" id="modalFile" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
       aria-labelledby="modalFileLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
@@ -72,6 +75,8 @@
         </div>
       </div>
     </div>
+    }
+
     }
   </div>
 </div>
