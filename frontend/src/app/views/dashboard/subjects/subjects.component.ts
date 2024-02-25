@@ -31,6 +31,8 @@ export class SubjectsComponent {
   public showBigCardFlag = false;
   public showFileBool = false;
 
+  private user: any = window.localStorage.getItem('user')
+  public role = (JSON.parse(this.user)).roles[0]
 
   public showFile(url: any) {
     window.open(url, '', 'width=620,height=450,toolbar=no,location=no,menubar=no,copyhistory=no,status=no,directories=no,scrollbars=yes,resizable=yes'); return false;
