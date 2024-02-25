@@ -1,4 +1,4 @@
-<div class="form-style">
+<div class="form-style z-i">
   <h2 class="z-i">Subjects</h2>
   <br>
   <div class="row justify-content-md-center">
@@ -44,34 +44,34 @@
         </div>
       </div>
     </div>
-    <!-- Modal -->
-    <div class="modal fade" id="modalFile" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-      aria-labelledby="modalFileLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="modalFileLabel">New File</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <form (submit)="postNewFile(openSubject.id)" [formGroup]="file">
-            <div class="modal-body">
-              <div class="mb-3">
-                <label class="form-label" name="name" id="name" for="name">Name</label>
-                <input class="form-control" formControlName="name" name="name" type="text">
-              </div>
-              <div class="mb-3">
-                <label class="form-label" name="url" id="url" for="url">Url</label>
-                <input class="form-control" formControlName="url" name="url" type="text">
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-styles-2" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-styles-1" data-bs-dismiss="modal">Add File</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
     }
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modalFile" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="modalFileLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modalFileLabel">New File</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form (submit)="postNewFile(openSubject.id)" [formGroup]="file">
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label" name="name" id="name" for="name">Name</label>
+            <input class="form-control" formControlName="name" name="name" type="text">
+          </div>
+          <div class="mb-3">
+            <label class="form-label" name="url" id="url" for="url">Url</label>
+            <input class="form-control" formControlName="url" name="url" type="text">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-styles-2" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-styles-1" data-bs-dismiss="modal">Add File</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>

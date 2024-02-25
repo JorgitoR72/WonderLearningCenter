@@ -1,1 +1,69 @@
-<p>schedule works!</p>
+<div class="form-style z-i">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+      <div>
+        <span class="monthName">{{ months[currentMonth].name }} {{ currentYear }}</span>
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Domingo</th>
+                <th>Lunes</th>
+                <th>Martes</th>
+                <th>Miércoles</th>
+                <th>Jueves</th>
+                <th>Viernes</th>
+                <th>Sábado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let week of getCalendar()">
+                <tr>
+                  <td *ngFor="let day of week">
+                    <span *ngIf="day" [ngClass]="{'event-day': hasEvent(day), 'day': true}"
+                      (click)="showEventDetails(day)">
+                      {{ day.getDate() }}
+                    </span>
+                    <ng-template #empty>&nbsp;</ng-template>
+                  </td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+        </div>
+        <h2>
+          <button (click)="changeMonth(-1)">Anterior</button>
+          <button (click)="changeMonth(1)">Siguiente</button>
+          <button (click)="onButtonClick()">Crea un evento</button>
+        </h2>
+        <div *ngIf="showEventForm">
+          <form>
+            <label for="eventDay">Selecciona el día:</label>
+            <select id="eventDay" name="eventDay" [(ngModel)]="newEventDay">
+              <option *ngFor="let day of getDaysInMonth(currentMonth + 1, currentYear)">{{ day }}</option>
+            </select>
+
+            <label for="eventDescription">Descripción del evento:</label>
+            <input type="text" id="eventDescription" name="eventDescription" [(ngModel)]="newEventDescription">
+
+            <label for="eventTime">Hora del evento:</label>
+            <input type="time" id="eventTime" name="eventTime" [(ngModel)]="newEventTime">
+
+            <button type="button" (click)="addEvent()">Agregar evento</button>
+          </form>
+        </div>
+        <div *ngIf="showingEventDetails">
+          @for(event of allEvents; track event){
+          <div>
+            {{ event.title }} - {{ event.date }}
+            <button (click)="deleteEvent(event)">X</button>
+          </div>
+
+          }
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
