@@ -13,11 +13,10 @@
             <li><a routerLink="/" routerLinkActive="active">Inicio</a></li>
             <li><a href="#services">Servicios</a></li>
             <li><a href="#courses">Cursos</a></li>
-            <li class="has-sub">
-              <a href="javascript:void(0)">Páginas</a>
-              <ul class="sub-menu">
+            <li class="has-sub" [ngClass]="{'is-open-sub': menuSubActive}">
+              <a (click)="toggleSubMenu()">Páginas</a>
+              <ul class="sub-menu" [ngStyle]="{'display': menuSubActive ? 'block' : 'none'}">
                 <li><a routerLink="/site/aboutus" routerLinkActive="active">Sobre Nosotros</a></li>
-                <li><a href="#testimonials">Testimonios</a></li>
                 <li><a routerLink="/site/contact" routerLinkActive="active">Contáctenos</a></li>
               </ul>
             </li>

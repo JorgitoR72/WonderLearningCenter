@@ -1,0 +1,57 @@
+div {
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 10px;
+  color: purple; /* Texto morado */
+}
+
+table {
+  width: 70%;
+  margin: 20px auto; /* Centrar la tabla en la página */
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Agregar sombra */
+}
+
+th, td {
+  border: 1px solid transparent; /* Borde inicialmente transparente */
+  padding: 12px;
+  text-align: center;
+}
+
+th {
+  font-weight: bold;
+  font-size: 16px;
+  color: #fff; /* Cambié el color de texto a blanco para mejorar la legibilidad */
+  background-color: #bc79d9; /* Fondo morado */
+  border-color: purple; /* Color del borde de las celdas de encabezado */
+}
+
+td {
+  cursor: pointer;
+  border-color: purple; /* Color del borde de las celdas de datos */
+}
+
+span.selected {
+  color: #fff;
+  border-radius: 50%;
+  padding: 8px;
+  background-color: purple; /* Color morado de fondo */
+}
+
+button {
+  background: none; /* Fondo transparente */
+  color: purple; /* Color de texto morado */
+  padding: 3px 8px; /* Se redujo el padding para hacer el botón más pequeño */
+  margin: 20px 10px; /* Se aumentó el margen para separar más los botones */
+  cursor: pointer;
+  border: 1px solid purple; /* Borde morado */
+  border-radius: 4px;
+}
+
+button:hover {
+  background: none; /* Fondo transparente al hacer hover */
+  color: #fff; /* Cambiar el color del texto a blanco al hacer hover */
+  background-color: purple; /* Fondo morado al hacer hover */
+}
